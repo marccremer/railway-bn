@@ -2,6 +2,7 @@
 export default {
   port: Number(process.env.PORT ?? 3000),
   fetch(request) {
+    const dbs = process.env.DB_STRING.slice(0,4)
     return new Response(
       `
       <html>
@@ -10,7 +11,7 @@ export default {
           <h1>Theo's Crappy Benchmark (Bun On Railway)</h1>
           <h4>Rendered at: ${new Date().toISOString()}</h4>
 
-
+        <h3>${dbs}</h3
           <h2><span>Full request to render time (according to Theo): <span id="overrideme" />ms</span></h2>
           <script>
             const currentTime = new Date();
